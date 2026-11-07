@@ -1,0 +1,627 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 9 16'%3E%3Crect width='9' height='16' rx='2' fill='%233A2DF0'/%3E%3C/svg%3E">
+<meta property="og:title" content="Joshua Vaughan, short-form video editor">
+<meta property="og:description" content="TikToks, Reels, Shorts and podcast clips for creators, founders and personality-led brands.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://joshuavaughan.com">
+<title>Joshua Vaughan | Short-form video editor</title>
+<meta name="description" content="Joshua Vaughan edits short-form vertical video: TikToks, Reels, Shorts and podcast clips for creators, founders and personality-led brands.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Hanken+Grotesk:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: one vertical-first page. Tall condensed type and 9:16 frames carry the identity; everything else stays quiet. */
+:root{
+  --paper:#F1F2F6;      /* cool off-white ground */
+  --paper-2:#E6E8F0;    /* raised band */
+  --ink:#16162B;        /* deep navy ink */
+  --muted:#5B5D76;
+  --line:#D5D8E4;
+  --accent:#3A2DF0;     /* ultramarine */
+  --accent-ink:#FFFFFF;
+  --tile:#1B1B32;       /* video frames stay dark in both themes */
+  --night:#0A0A18;      /* viewer backdrop */
+  --on-night:#F3F3FA;
+  --caption-bg:#FFFFFF;
+  --caption-ink:#111122;
+  --display:"Big Shoulders Display","Arial Narrow","Roboto Condensed",Impact,sans-serif;
+  --body:"Hanken Grotesk",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --r-frame:18px;
+  --wrap:1240px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0F0F1E; --paper-2:#16162A; --ink:#ECEDF7; --muted:#9C9EBB; --line:#2A2B45;
+    --accent:#8E86FF; --accent-ink:#0F0F1E; --tile:#1C1C34; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0F0F1E; --paper-2:#16162A; --ink:#ECEDF7; --muted:#9C9EBB; --line:#2A2B45;
+  --accent:#8E86FF; --accent-ink:#0F0F1E; --tile:#1C1C34; color-scheme:dark;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--paper)}
+img,video{max-width:100%;display:block}
+a{color:inherit}
+button{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:6px}
+.wrap{max-width:var(--wrap);margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--display);font-weight:800;line-height:.9;letter-spacing:.005em;margin:0;text-wrap:balance}
+p{margin:0}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* ---------- header ---------- */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:color-mix(in srgb,var(--paper) 86%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid transparent;transition:border-color .2s}
+.top.scrolled{border-bottom-color:var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:14px}
+.mark{font-family:var(--display);font-weight:900;font-size:1.65rem;letter-spacing:.01em;text-decoration:none;text-transform:uppercase;line-height:1}
+.nav{display:flex;align-items:center;gap:6px}
+.nav a{text-decoration:none;font-weight:500;font-size:.95rem;padding:8px 12px;border-radius:999px;color:var(--muted);white-space:nowrap}
+.nav a:hover{color:var(--ink)}
+.nav .cta{background:var(--ink);color:var(--paper);font-weight:600;padding:9px 16px}
+.nav .cta:hover{background:var(--accent);color:var(--accent-ink)}
+@media (max-width:680px){.nav a:not(.cta){display:none}}
+
+/* ---------- hero ---------- */
+.hero{overflow-x:clip}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:40px;align-items:center;padding-block:56px 72px}
+.hero h1{font-size:clamp(3.6rem,8.6vw,8.4rem);text-transform:uppercase;font-weight:900;line-height:.86}
+.hero .lede{margin-top:26px;max-width:34ch;font-size:1.18rem;color:var(--muted)}
+.hero .lede strong{color:var(--ink);font-weight:600}
+.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.btn{display:inline-flex;align-items:center;gap:10px;text-decoration:none;font-weight:600;padding:14px 22px;border-radius:999px;border:1.5px solid var(--ink);transition:background .15s,color .15s,border-color .15s}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.btn.primary:hover{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+.btn.ghost:hover{background:var(--ink);color:var(--paper)}
+.platforms{margin-top:34px;display:flex;flex-wrap:wrap;gap:8px 18px;color:var(--muted);font-size:.92rem}
+.platforms span{display:inline-flex;align-items:center;gap:8px}
+.platforms span::before{content:"";width:6px;height:6px;border-radius:2px;background:var(--accent)}
+
+.fan{position:relative;height:clamp(380px,46vw,580px);display:flex;justify-content:center;align-items:center}
+.phone{position:absolute;height:100%;aspect-ratio:9/16;max-width:100%;border-radius:calc(var(--r-frame) + 6px);background:var(--tile);overflow:hidden;box-shadow:0 30px 60px -28px rgba(10,10,40,.55);transition:transform .9s cubic-bezier(.2,.8,.2,1)}
+.phone.side{height:84%;filter:saturate(.9)}
+.phone.l{transform:translateX(-62%) rotate(-7deg)}
+.phone.r{transform:translateX(62%) rotate(7deg)}
+.phone.front{z-index:2;transform:none;outline:6px solid var(--paper)}
+.fan.stacked .phone.l,.fan.stacked .phone.r{transform:translateX(0) rotate(0)}
+.chip{position:absolute;z-index:3;font-size:.72rem;font-weight:600;font-variant-numeric:tabular-nums;letter-spacing:.03em;padding:5px 9px;border-radius:999px;background:rgba(10,10,24,.62);color:#fff;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.chip.tc{left:12px;bottom:12px;display:flex;align-items:center;gap:7px}
+.chip.tc::before{content:"";width:7px;height:7px;border-radius:50%;background:#FF4D5E}
+.chip.res{right:12px;top:12px}
+@media (max-width:860px){
+  .hero .wrap{grid-template-columns:1fr;padding-block:36px 56px;gap:44px}
+  .fan{height:min(118vw,440px)}
+}
+
+/* ---------- frame art (shown until a real video loads) ---------- */
+.art{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:16px;background:var(--hue,#2A22B8);color:#fff}
+.art::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,rgba(255,255,255,.035) 0 1px,transparent 1px 4px);pointer-events:none}
+.art .cap{position:absolute;left:50%;top:44%;transform:translate(-50%,-50%);max-width:84%;text-align:center;font-family:var(--body);font-weight:800;font-size:clamp(.8rem,1.6vw,1.05rem);line-height:1.15;background:var(--caption-bg);color:var(--caption-ink);padding:6px 10px;border-radius:8px;box-shadow:0 4px 0 rgba(0,0,0,.25)}
+.art .big{font-family:var(--display);font-weight:900;text-transform:uppercase;font-size:clamp(1.5rem,3vw,2.4rem);line-height:.88;opacity:.92;max-width:90%}
+.art .poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1}
+.frame video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .3s}
+.frame.ready video{opacity:1}
+.frame.ready .art{visibility:hidden}
+
+/* ---------- sections ---------- */
+section{scroll-margin-top:70px}
+.band{padding-block:88px}
+.band.alt{background:var(--paper-2)}
+.head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:20px 32px;margin-bottom:36px}
+.head h2{font-size:clamp(3rem,6.4vw,5.6rem);text-transform:uppercase}
+.head p{color:var(--muted);max-width:40ch}
+
+/* work */
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px}
+.filter{border:1.5px solid var(--line);background:transparent;padding:9px 16px;border-radius:999px;font-weight:600;font-size:.95rem;cursor:pointer;display:inline-flex;gap:8px;align-items:center;transition:border-color .15s,background .15s,color .15s}
+.filter .n{font-variant-numeric:tabular-nums;color:var(--muted);font-weight:500}
+.filter:hover{border-color:var(--ink)}
+.filter[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+.filter[aria-pressed="true"] .n{color:inherit;opacity:.6}
+.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+@media (max-width:900px){.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}}
+.tile{position:relative;display:block;width:100%;aspect-ratio:9/16;border:0;padding:0;border-radius:var(--r-frame);overflow:hidden;background:var(--tile);cursor:pointer;text-align:left;transform:translateZ(0)}
+.tile .meta{position:absolute;inset:auto 0 0 0;z-index:2;padding:44px 14px 14px;background:linear-gradient(to top,rgba(8,8,22,.86),rgba(8,8,22,0));color:#fff;display:grid;gap:3px}
+.tile .meta b{font-weight:700;font-size:1rem;line-height:1.2;text-wrap:balance}
+.tile .meta span{font-size:.82rem;opacity:.75}
+.tile .views{position:absolute;z-index:2;top:10px;right:10px}
+.tile .play{position:absolute;z-index:2;top:10px;left:10px;width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.9);display:grid;place-items:center;transition:transform .2s}
+.tile .play svg{width:12px;height:12px;margin-left:2px;fill:var(--caption-ink)}
+.tile:hover .play{transform:scale(1.1)}
+.tile .art .big{display:none}
+.tile .art .cap{top:40%}
+.grid .tile[hidden]{display:none}
+.hint{margin-top:22px;color:var(--muted);font-size:.92rem}
+
+/* services */
+.services{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border-top:1.5px solid var(--ink)}
+.service{padding:28px 28px 8px 0;display:grid;gap:12px;align-content:start}
+.service + .service{padding-left:28px;border-left:1px solid var(--line)}
+.service h3{font-size:2.3rem;text-transform:uppercase}
+.service p{color:var(--muted)}
+.service ul{margin:4px 0 0;padding:0;list-style:none;display:grid;gap:6px;font-size:.95rem}
+.service li{display:flex;gap:10px}
+.service li::before{content:"";flex:none;width:6px;height:6px;margin-top:.6em;border-radius:2px;background:var(--accent)}
+@media (max-width:860px){.services{grid-template-columns:1fr}.service,.service + .service{padding:24px 0;border-left:0;border-top:1px solid var(--line)}.service:first-child{border-top:0}}
+
+/* process */
+.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;margin-top:64px;counter-reset:s}
+.step{display:grid;gap:8px;align-content:start}
+.step .num{font-family:var(--display);font-weight:900;font-size:3.6rem;line-height:.8;color:var(--accent)}
+.step b{font-size:1.06rem}
+.step p{color:var(--muted);font-size:.95rem}
+@media (max-width:860px){.steps{grid-template-columns:repeat(2,minmax(0,1fr));gap:28px 18px}}
+@media (max-width:460px){.steps{grid-template-columns:1fr}}
+
+/* about */
+.about{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:56px;align-items:center}
+.portrait{position:relative;aspect-ratio:4/5;border-radius:var(--r-frame);overflow:hidden;background:var(--accent);max-width:440px;width:100%}
+.portrait img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 30%}
+.portrait .initials{position:absolute;inset:0;display:grid;place-items:center;font-family:var(--display);font-weight:900;font-size:clamp(7rem,16vw,12rem);color:var(--accent-ink);letter-spacing:-.02em}
+.about h2{font-size:clamp(3rem,6.4vw,5.6rem);text-transform:uppercase;margin-bottom:24px}
+.about .copy{display:grid;gap:16px;max-width:58ch;font-size:1.08rem}
+.about .copy p:not(:first-of-type){color:var(--muted)}
+.tools{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.about .copy .acting{color:var(--ink);margin-top:8px}
+.acting a{color:var(--accent);font-weight:600}
+.tools span{border:1.5px solid var(--line);border-radius:999px;padding:6px 14px;font-size:.88rem;font-weight:600}
+@media (max-width:860px){.about{grid-template-columns:1fr;gap:32px}.portrait{max-width:320px}}
+
+/* contact */
+.contact{background:var(--accent);color:var(--accent-ink)}
+.contact .wrap{padding-block:96px;display:grid;gap:28px}
+.contact h2{font-size:clamp(3.6rem,10vw,9rem);text-transform:uppercase;line-height:.84}
+.contact p{max-width:46ch;font-size:1.15rem;opacity:.86}
+.mail{display:flex;flex-wrap:wrap;align-items:center;gap:12px 16px}
+.mail a{font-family:var(--display);font-weight:800;font-size:clamp(1.8rem,4.6vw,3.2rem);text-decoration:none;border-bottom:3px solid currentColor;line-height:1.1;overflow-wrap:anywhere}
+.copy-btn{border:1.5px solid currentColor;background:transparent;color:inherit;border-radius:999px;padding:10px 18px;font-weight:600;cursor:pointer}
+.copy-btn:hover{background:var(--accent-ink);color:var(--accent)}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;padding-block:28px;color:var(--muted);font-size:.9rem}
+footer a{text-decoration:none}
+footer a:hover{color:var(--ink)}
+
+/* ---------- vertical viewer ---------- */
+.viewer{position:fixed;inset:0;z-index:100;background:var(--night);color:var(--on-night);display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:32px;padding:max(20px,env(safe-area-inset-top,0px)) max(20px,env(safe-area-inset-right,0px)) max(20px,env(safe-area-inset-bottom,0px)) max(20px,env(safe-area-inset-left,0px))}
+.viewer[hidden]{display:none}
+.stage{position:relative;grid-column:2;height:min(88vh,calc((100vw - 40px) * 16 / 9));aspect-ratio:9/16;max-width:calc(100vw - 40px);border-radius:var(--r-frame);overflow:hidden;background:var(--tile);cursor:pointer;touch-action:pan-x pan-y}
+.stage video{opacity:0}
+.stage.ready video{opacity:1}
+.stage .art .big{font-size:clamp(2rem,4vw,3rem)}
+.stage .missing{position:absolute;z-index:3;left:14px;right:14px;top:14px;background:rgba(10,10,24,.78);color:#fff;font-size:.85rem;line-height:1.4;padding:10px 12px;border-radius:10px}
+.stage.ready .missing{display:none}
+.bigplay{position:absolute;z-index:3;inset:0;margin:auto;width:78px;height:78px;border-radius:50%;background:rgba(255,255,255,.9);display:grid;place-items:center;opacity:0;transform:scale(.85);transition:opacity .2s,transform .2s;pointer-events:none}
+.bigplay svg{width:26px;height:26px;margin-left:4px;fill:var(--caption-ink)}
+.stage.paused.ready .bigplay{opacity:1;transform:none}
+.bar{position:absolute;z-index:3;left:0;right:0;bottom:0;height:4px;background:rgba(255,255,255,.2)}
+.bar i{display:block;height:100%;width:0;background:#fff}
+.vmeta{grid-column:3;align-self:end;max-width:340px;display:grid;gap:10px;padding-bottom:12px}
+.vmeta .count{font-variant-numeric:tabular-nums;opacity:.6;font-size:.9rem}
+.vmeta h3{font-size:clamp(2.2rem,3.4vw,3.2rem);text-transform:uppercase}
+.vmeta .who{font-weight:600}
+.vmeta .note{opacity:.75}
+.vmeta .vviews{justify-self:start;position:static}
+.vnav{grid-column:1;justify-self:end;display:grid;gap:12px}
+.vbtn{width:48px;height:48px;border-radius:50%;border:1.5px solid rgba(255,255,255,.35);background:transparent;color:var(--on-night);display:grid;place-items:center;cursor:pointer;transition:background .15s,border-color .15s}
+.vbtn:hover{background:rgba(255,255,255,.12);border-color:#fff}
+.vbtn svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.vclose{position:absolute;top:max(18px,env(safe-area-inset-top,0px));right:max(18px,env(safe-area-inset-right,0px));z-index:5}
+.vmute{position:absolute;z-index:4;right:12px;bottom:16px;width:40px;height:40px;background:rgba(10,10,24,.55);border-color:transparent}
+@media (max-width:900px){
+  .viewer{grid-template-columns:1fr;padding:0;gap:0;place-items:center}
+  .stage{grid-column:1;grid-row:1;height:100%;max-height:100%;width:auto;max-width:100%;border-radius:0}
+  .vmeta{grid-column:1;grid-row:1;align-self:end;justify-self:stretch;max-width:none;z-index:4;padding:80px max(18px,env(safe-area-inset-left,0px)) max(30px,calc(env(safe-area-inset-bottom,0px) + 22px));background:linear-gradient(to top,rgba(8,8,22,.88),rgba(8,8,22,0));pointer-events:none;padding-right:76px}
+  .vmeta h3{font-size:2rem}
+  .vmeta .note{font-size:.92rem}
+  .vnav{grid-column:1;grid-row:1;justify-self:end;align-self:center;z-index:5;margin-right:max(12px,env(safe-area-inset-right,0px))}
+  .vnav .vbtn{width:42px;height:42px;background:rgba(10,10,24,.45);border-color:transparent}
+  .vmute{bottom:auto;top:max(18px,env(safe-area-inset-top,0px));right:auto;left:max(18px,env(safe-area-inset-left,0px))}
+  .bar{bottom:env(safe-area-inset-bottom,0px)}
+}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .phone,.frame video,.bigplay{transition:none}
+}
+</style>
+</head>
+<body>
+
+<header class="top" id="top">
+  <div class="wrap">
+    <a class="mark" href="#top" aria-label="Joshua Vaughan, back to top">Joshua Vaughan</a>
+    <nav class="nav" aria-label="Main">
+      <a href="#work">Work</a>
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a class="cta" href="#contact">Start a project</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="wrap">
+      <div>
+        <h1 id="hero-title">Short-form edits for people worth watching</h1>
+        <p class="lede">I edit TikToks, Reels, Shorts and podcast clips for <strong>creators, founders and personality-led brands</strong>. Cut to hook in the first second and hold to the last.</p>
+        <div class="actions">
+          <a class="btn primary" href="#work">Watch the work</a>
+          <a class="btn ghost" href="#contact">Start a project</a>
+        </div>
+        <div class="platforms" aria-label="Platforms I edit for">
+          <span>TikTok</span><span>Instagram Reels</span><span>YouTube Shorts</span><span>Video podcasts</span>
+        </div>
+      </div>
+      <div class="fan stacked" id="fan" aria-hidden="true"></div>
+    </div>
+  </section>
+
+  <section class="band alt" id="work" aria-labelledby="work-title">
+    <div class="wrap">
+      <div class="head">
+        <h2 id="work-title">Selected work</h2>
+        <p>Every clip here is 9:16 and made for the feed. Tap one to watch it full screen with sound.</p>
+      </div>
+      <div class="filters" id="filters" role="group" aria-label="Filter clips"></div>
+      <div class="grid" id="grid"></div>
+      <p class="hint" id="hint">On a laptop, hover over a clip to preview it.</p>
+    </div>
+  </section>
+
+  <section class="band" id="services" aria-labelledby="services-title">
+    <div class="wrap">
+      <div class="head">
+        <h2 id="services-title">What I do</h2>
+        <p>One editor who learns your voice, your pacing and what your audience stays for.</p>
+      </div>
+      <div class="services">
+        <article class="service">
+          <h3>Short-form edits</h3>
+          <p>Clips for TikTok, Reels and Shorts, built from your raw footage.</p>
+          <ul>
+            <li>Hooks rewritten in the edit</li>
+            <li>Animated captions and sound design</li>
+            <li>Pacing that holds people to the end</li>
+          </ul>
+        </article>
+        <article class="service">
+          <h3>Podcast clips</h3>
+          <p>Send the full episode. I pull the moments worth sharing and cut them for vertical.</p>
+          <ul>
+            <li>Reframed from 16:9 to 9:16</li>
+            <li>Speaker tracking and punch-ins</li>
+            <li>A batch of clips from every episode</li>
+          </ul>
+        </article>
+        <article class="service">
+          <h3>Monthly retainer</h3>
+          <p>A set number of edits every month for creators and brands who post consistently.</p>
+          <ul>
+            <li>Priority turnaround</li>
+            <li>Consistent style across every post</li>
+            <li>Ideal for agencies needing a reliable editor</li>
+          </ul>
+        </article>
+      </div>
+
+      <ol class="steps" aria-label="How a project works">
+        <li class="step"><span class="num">1</span><b>Send your footage</b><p>Share a link to your raw files, plus a clip or two you love the feel of.</p></li>
+        <li class="step"><span class="num">2</span><b>First cut</b><p>You get a first cut within two working days.</p></li>
+        <li class="step"><span class="num">3</span><b>Notes</b><p>Two rounds of changes are included, so it ends up exactly right.</p></li>
+        <li class="step"><span class="num">4</span><b>Ready to post</b><p>Delivered at 1080 × 1920 with captions, ready for every platform.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="band alt" id="about" aria-labelledby="about-title">
+    <div class="wrap about">
+      <div class="portrait" id="portrait">
+        <span class="initials" aria-hidden="true">JV</span>
+      </div>
+      <div>
+        <h2 id="about-title">About me</h2>
+        <div class="copy">
+          <p>I'm Joshua Vaughan, a short-form video editor based in London.</p>
+          <p>I'm also a working actor, and it shapes how I edit. I cut for performance: where the laugh lands, how long a pause can hold, and the exact frame someone decides whether to keep watching.</p>
+          <p>Content I've edited has reached millions of views. I've run social media for small businesses, made UGC for brands, and I know what it's like to be the person on camera.</p>
+          <div class="tools" aria-label="Tools I use"><span>Final Cut Pro</span><span>CapCut</span><span>Logic Pro X</span></div>
+          <p class="acting">If you came to see my acting work, check out my <a href="https://app.spotlight.com/4130-0163-6597" target="_blank" rel="noopener">Spotlight profile</a>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact" aria-labelledby="contact-title">
+    <div class="wrap">
+      <h2 id="contact-title">Got footage? Let's talk.</h2>
+      <p>Tell me who you are, what you post and how often. I'll reply within a day.</p>
+      <div class="mail">
+        <a href="mailto:hello@joshuavaughan.com" id="mail">hello@joshuavaughan.com</a>
+        <button class="copy-btn" id="copy" type="button">Copy email</button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© <span id="yr">2026</span> Joshua Vaughan. London.</span>
+    <a href="#top">Back to top</a>
+  </div>
+</footer>
+
+<div class="viewer" id="viewer" role="dialog" aria-modal="true" aria-labelledby="v-title" hidden>
+  <button class="vbtn vclose" id="v-close" type="button" aria-label="Close"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  <div class="vnav">
+    <button class="vbtn" id="v-prev" type="button" aria-label="Previous clip"><svg viewBox="0 0 24 24"><path d="M6 15l6-6 6 6"/></svg></button>
+    <button class="vbtn" id="v-next" type="button" aria-label="Next clip"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button>
+  </div>
+  <div class="stage frame" id="stage">
+    <div class="art" id="v-art"><span class="cap"></span><span class="big"></span></div>
+    <video id="v-video" playsinline preload="auto"></video>
+    <div class="missing" id="v-missing"></div>
+    <span class="bigplay"><svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg></span>
+    <button class="vbtn vmute" id="v-mute" type="button" aria-label="Mute"></button>
+    <div class="bar"><i id="v-bar"></i></div>
+  </div>
+  <div class="vmeta">
+    <span class="count" id="v-count"></span>
+    <h3 id="v-title"></h3>
+    <span class="who" id="v-who"></span>
+    <p class="note" id="v-note"></p>
+    <span class="chip vviews" id="v-views" hidden></span>
+  </div>
+</div>
+
+<script src="clips.js"></script>
+<script>
+(function(){
+  "use strict";
+  var CLIPS = (window.CLIPS || []).filter(function(c){ return c && c.file; });
+  var HUES = ["#2D23C9","#3B2366","#14506B","#6B2340","#1F2A55","#4A2FB0","#24524A","#5A2A7A"];
+  var PLAY = '<svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg>';
+  var ICON_SOUND = '<svg viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9z"/><path d="M16.5 8.5a5 5 0 010 7"/></svg>';
+  var ICON_MUTED = '<svg viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9z"/><path d="M17 9l5 5M22 9l-5 5"/></svg>';
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var canHover = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+
+  function el(tag, cls, html){ var e=document.createElement(tag); if(cls) e.className=cls; if(html!=null) e.innerHTML=html; return e; }
+  function esc(s){ return String(s==null?"":s).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c];}); }
+  function capWords(t){ var w=String(t||"").split(/\s+/); return w.slice(0,Math.min(4,w.length)).join(" "); }
+  function hue(i){ return HUES[i % HUES.length]; }
+
+  /* preview image: clips/clip-01.mp4 uses clips/clip-01.jpg (or set cover: "..." in clips.js) */
+  function posterOf(clip){ return clip.cover || String(clip.file).replace(/\.(mp4|mov|m4v|webm)$/i, ".jpg"); }
+  function addPoster(a, clip, eager){
+    var old = a.querySelector(".poster"); if(old) old.remove();
+    var im = new Image(); im.className = "poster"; im.alt = ""; im.decoding = "async";
+    if(!eager) im.loading = "lazy";
+    im.onerror = function(){ im.remove(); };
+    im.src = posterOf(clip);
+    a.appendChild(im);
+  }
+  function art(clip, i, eager){
+    var a = el("div","art");
+    a.style.setProperty("--hue", hue(i));
+    a.innerHTML = '<span class="cap">'+esc(capWords(clip.title))+'</span><span class="big">'+esc(clip.title)+'</span>';
+    addPoster(a, clip, eager);
+    return a;
+  }
+  /* videos only download when someone plays them; the preview image shows until then */
+  function attachVideo(frame, clip, opts){
+    opts = opts || {};
+    var v = document.createElement("video");
+    v.muted = true; v.defaultMuted = true; v.loop = true; v.playsInline = true;
+    v.setAttribute("playsinline",""); v.setAttribute("muted","");
+    v.preload = "none";
+    v.addEventListener("loadeddata", function(){ frame.classList.add("ready"); });
+    if(opts.autoplay){ v.preload = "auto"; v.autoplay = true; v.src = clip.file; }
+    frame.appendChild(v);
+    return v;
+  }
+  function startVideo(v, clip){
+    if(!v.getAttribute("src")){ v.preload = "auto"; v.src = clip.file; }
+    var p = v.play(); if(p && p.catch) p.catch(function(){});
+  }
+
+  /* ---------- hero fan ---------- */
+  var fan = document.getElementById("fan");
+  var frontVideo = null;
+  (function(){
+    if(!CLIPS.length) return;
+    var order = [[1,"side l"],[2,"side r"],[0,"front"]];
+    order.forEach(function(o){
+      var idx = o[0] % CLIPS.length, clip = CLIPS[idx];
+      var p = el("div","phone frame "+o[1]);
+      p.appendChild(art(clip, idx, true));
+      var front = o[1]==="front";
+      if(front){
+        /* the opening loop: clips/showreel.mp4 (change it with window.SHOWREEL in clips.js) */
+        var reel = { file: window.SHOWREEL || "clips/showreel.mp4", title: clip.title };
+        p.innerHTML = "";
+        p.appendChild(art(reel, idx, true));
+        clip = reel;
+      }
+      var v = front ? attachVideo(p, clip, {autoplay: !reduce}) : null;
+      if(front){
+        frontVideo = v;
+        p.insertAdjacentHTML("beforeend",'<span class="chip res">1080 × 1920</span><span class="chip tc" id="tc">00:00:00:00</span>');
+      }
+      fan.appendChild(p);
+    });
+    if(reduce){ fan.classList.remove("stacked"); }
+    else { requestAnimationFrame(function(){ setTimeout(function(){ fan.classList.remove("stacked"); }, 120); }); }
+
+    /* timecode at 25fps, the UK broadcast rate */
+    var tc = document.getElementById("tc"), start = performance.now();
+    function pad(n){ return (n<10?"0":"")+n; }
+    function tick(now){
+      var secs = (frontVideo && frontVideo.readyState>1 && !frontVideo.paused) ? frontVideo.currentTime : ((now-start)/1000)%60;
+      var f = Math.floor((secs%1)*25), s = Math.floor(secs)%60, m = Math.floor(secs/60)%60;
+      tc.textContent = "00:"+pad(m)+":"+pad(s)+":"+pad(f);
+      if(!reduce) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  })();
+
+  /* ---------- filters + grid ---------- */
+  var grid = document.getElementById("grid"), filters = document.getElementById("filters");
+  var tiles = [];
+  CLIPS.forEach(function(clip, i){
+    var t = el("button","tile frame");
+    t.type = "button";
+    t.setAttribute("aria-label", "Play: "+(clip.title||"clip")+(clip.client?", for "+clip.client:""));
+    t.appendChild(art(clip, i));
+    var v = attachVideo(t, clip);
+    t.insertAdjacentHTML("beforeend",
+      '<span class="play" aria-hidden="true">'+PLAY+'</span>'+
+      (clip.views ? '<span class="chip views">'+esc(clip.views)+'</span>' : '')+
+      '<span class="meta"><b>'+esc(clip.title)+'</b><span>'+esc(clip.client)+'</span></span>');
+    if(canHover){
+      t.addEventListener("mouseenter", function(){ startVideo(v, clip); });
+      t.addEventListener("mouseleave", function(){ v.pause(); });
+    }
+    t.addEventListener("click", function(){ openViewer(i, t); });
+    grid.appendChild(t);
+    tiles.push({el:t, clip:clip, index:i});
+  });
+  if(!canHover){ document.getElementById("hint").hidden = true; }
+
+  var types = [];
+  CLIPS.forEach(function(c){ if(c.type && types.indexOf(c.type)<0) types.push(c.type); });
+  var current = "All";
+  function makeFilter(name, count){
+    var b = el("button","filter", esc(name)+' <span class="n">'+count+'</span>');
+    b.type = "button";
+    b.setAttribute("aria-pressed", name===current ? "true" : "false");
+    b.addEventListener("click", function(){
+      current = name;
+      Array.prototype.forEach.call(filters.children, function(x){ x.setAttribute("aria-pressed", x===b ? "true":"false"); });
+      tiles.forEach(function(t){ t.el.hidden = !(name==="All" || t.clip.type===name); });
+    });
+    filters.appendChild(b);
+  }
+  if(types.length > 1){
+    makeFilter("All", CLIPS.length);
+    types.forEach(function(ty){ makeFilter(ty, CLIPS.filter(function(c){return c.type===ty;}).length); });
+  } else { filters.hidden = true; }
+
+  /* ---------- viewer ---------- */
+  var viewer = document.getElementById("viewer"), stage = document.getElementById("stage");
+  var vv = document.getElementById("v-video"), vArt = document.getElementById("v-art");
+  var vMissing = document.getElementById("v-missing"), vBar = document.getElementById("v-bar");
+  var vMute = document.getElementById("v-mute");
+  var list = [], pos = 0, opener = null, muted = false;
+
+  function visibleList(){ return tiles.filter(function(t){ return !t.el.hidden; }).map(function(t){ return t.index; }); }
+  function setMuteIcon(){ vMute.innerHTML = muted ? ICON_MUTED : ICON_SOUND; vMute.setAttribute("aria-label", muted ? "Turn sound on" : "Mute"); }
+
+  function load(){
+    var i = list[pos], clip = CLIPS[i];
+    stage.classList.remove("ready"); stage.classList.add("paused");
+    vArt.style.setProperty("--hue", hue(i));
+    vArt.querySelector(".cap").textContent = capWords(clip.title);
+    vArt.querySelector(".big").textContent = clip.title || "";
+    addPoster(vArt, clip, true);
+    vMissing.textContent = "This video isn't uploaded yet. Add "+clip.file+" to your site folder and it will play here.";
+    document.getElementById("v-count").textContent = (pos+1)+" of "+list.length;
+    document.getElementById("v-title").textContent = clip.title || "";
+    document.getElementById("v-who").textContent = clip.client || "";
+    document.getElementById("v-note").textContent = clip.note || "";
+    var vw = document.getElementById("v-views");
+    vw.hidden = !clip.views; vw.textContent = clip.views || "";
+    vBar.style.width = "0";
+    vv.muted = muted;
+    vv.src = clip.file;
+    var p = vv.play(); if(p && p.catch) p.catch(function(){
+      /* browser blocked sound: retry muted */
+      if(!vv.muted){ muted = true; vv.muted = true; setMuteIcon(); var q=vv.play(); if(q&&q.catch) q.catch(function(){}); }
+    });
+  }
+  vv.addEventListener("loadeddata", function(){ stage.classList.add("ready"); });
+  vv.addEventListener("play", function(){ stage.classList.remove("paused"); });
+  vv.addEventListener("pause", function(){ stage.classList.add("paused"); });
+  vv.addEventListener("timeupdate", function(){ if(vv.duration) vBar.style.width = (vv.currentTime/vv.duration*100)+"%"; });
+  vv.addEventListener("ended", function(){ step(1); });
+
+  function openViewer(index, from){
+    list = visibleList(); pos = Math.max(0, list.indexOf(index)); opener = from || null;
+    viewer.hidden = false; document.body.style.overflow = "hidden";
+    if(frontVideo) frontVideo.pause();
+    setMuteIcon(); load();
+    document.getElementById("v-close").focus();
+  }
+  function closeViewer(){
+    vv.pause(); vv.removeAttribute("src"); vv.load();
+    viewer.hidden = true; document.body.style.overflow = "";
+    if(frontVideo && !reduce){ var p=frontVideo.play(); if(p&&p.catch) p.catch(function(){}); }
+    if(opener) opener.focus();
+  }
+  function step(d){ if(!list.length) return; pos = (pos + d + list.length) % list.length; load(); }
+  function toggle(){ if(!stage.classList.contains("ready")) return; if(vv.paused){ var p=vv.play(); if(p&&p.catch) p.catch(function(){}); } else vv.pause(); }
+
+  document.getElementById("v-close").addEventListener("click", closeViewer);
+  document.getElementById("v-prev").addEventListener("click", function(){ step(-1); });
+  document.getElementById("v-next").addEventListener("click", function(){ step(1); });
+  vMute.addEventListener("click", function(e){ e.stopPropagation(); muted = !muted; vv.muted = muted; setMuteIcon(); });
+  stage.addEventListener("click", toggle);
+  viewer.addEventListener("click", function(e){ if(e.target === viewer) closeViewer(); });
+
+  document.addEventListener("keydown", function(e){
+    if(viewer.hidden) return;
+    if(e.key==="Escape"){ e.preventDefault(); closeViewer(); }
+    else if(e.key==="ArrowDown"||e.key==="ArrowRight"){ e.preventDefault(); step(1); }
+    else if(e.key==="ArrowUp"||e.key==="ArrowLeft"){ e.preventDefault(); step(-1); }
+    else if(e.key===" " && e.target.tagName!=="BUTTON"){ e.preventDefault(); toggle(); }
+    else if(e.key==="m"||e.key==="M"){ vMute.click(); }
+    else if(e.key==="Tab"){
+      var f = viewer.querySelectorAll("button"); var first=f[0], last=f[f.length-1];
+      if(e.shiftKey && document.activeElement===first){ e.preventDefault(); last.focus(); }
+      else if(!e.shiftKey && document.activeElement===last){ e.preventDefault(); first.focus(); }
+    }
+  });
+
+  /* swipe up/down (or left/right) between clips, like the apps */
+  var sx=0, sy=0, st=0;
+  viewer.addEventListener("touchstart", function(e){ var t=e.touches[0]; sx=t.clientX; sy=t.clientY; st=Date.now(); }, {passive:true});
+  viewer.addEventListener("touchend", function(e){
+    var t=e.changedTouches[0], dx=t.clientX-sx, dy=t.clientY-sy;
+    if(Date.now()-st > 700) return;
+    if(Math.abs(dy) > 60 && Math.abs(dy) > Math.abs(dx)) step(dy<0 ? 1 : -1);
+    else if(Math.abs(dx) > 60) step(dx<0 ? 1 : -1);
+  }, {passive:true});
+
+  /* ---------- small things ---------- */
+  var top = document.getElementById("top");
+  function onScroll(){ top.classList.toggle("scrolled", window.scrollY > 8); }
+  window.addEventListener("scroll", onScroll, {passive:true}); onScroll();
+
+  /* optional photo: put me.jpg in the site folder and it replaces the initials */
+  (function(){
+    var img = new Image();
+    img.alt = "Joshua Vaughan";
+    img.onload = function(){ var p=document.getElementById("portrait"); p.innerHTML=""; p.appendChild(img); };
+    img.onerror = function(){ if(img.src.indexOf("clips/")<0){ img.src = "clips/me.jpg"; } };
+    img.src = "me.jpg";
+  })();
+
+  document.getElementById("yr").textContent = new Date().getFullYear();
+
+  var copyBtn = document.getElementById("copy"), mail = document.getElementById("mail");
+  copyBtn.addEventListener("click", function(){
+    var addr = mail.textContent.trim();
+    function done(){ copyBtn.textContent = "Copied"; setTimeout(function(){ copyBtn.textContent = "Copy email"; }, 1800); }
+    function fallback(){ var r=document.createRange(); r.selectNodeContents(mail); var s=window.getSelection(); s.removeAllRanges(); s.addRange(r); copyBtn.textContent = "Press Cmd+C to copy"; }
+    try{ navigator.clipboard.writeText(addr).then(done, fallback); }catch(e){ fallback(); }
+  });
+})();
+</script>
+</body>
+</html>
