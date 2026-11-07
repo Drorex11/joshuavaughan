@@ -42,14 +42,6 @@ window.CLIPS = [
     note: " A successful ad written, shot, edited and voiced by me; targeting a wide Birmingham demographic."
   },
   {
-    file: "clips/clip-03.mp4",
-    title: "Spring Rolls x Air Fryer",
-    client: "Kelen & Willian Appliances",
-    type: "Brands",
-    views: "",
-    note: "Promoting their latest range of modern, portable air fryers."
-  },
-  {
     file: "clips/clip-04.mp4",
     title: "Gifting strangers THIS expensive watch",
     client: "Joshua Vaughan",
@@ -64,6 +56,14 @@ window.CLIPS = [
     type: "Creators",
     views: "300k+ views",
     note: "."
+  },
+  {
+    file: "clips/clip-03.mp4",
+    title: "Spring Rolls x Air Fryer",
+    client: "Kelen & Willian Appliances",
+    type: "Brands",
+    views: "",
+    note: "Promoting their latest range of modern, portable air fryers."
   },
   {
     file: "clips/clip-06.mp4",
