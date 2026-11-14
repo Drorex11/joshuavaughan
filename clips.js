@@ -26,27 +26,11 @@
 
 window.CLIPS = [
   {
-    file: "clips/clip-01.mp4",
-    title: "Grandma tries Gen Z's three most popular drinks",
-    client: "Loaf n Latte Cafè",
-    type: "Brands",
-    views: "10.2k Views",
-    note: "Used to promote their latest drinks range."
-  },
-  {
-    file: "clips/clip-02.mp4",
-    title: "The Cheekiest Chinesiest Mixed Meat Fried Rice",
-    client: "Ikrave Chinese Restaurant",
-    type: "Brands",
-    views: "175k Views",
-    note: " A successful ad written, shot, edited and voiced by me; targeting a wide Birmingham demographic."
-  },
-  {
     file: "clips/clip-04.mp4",
     title: "Gifting strangers THIS expensive watch",
     client: "Joshua Vaughan",
     type: "Creators",
-    views: "400k+ views",
+    views: "400K+ views",
     note: "A collaboration with Nordstrom. Released around Christmas."
   },
   {
@@ -54,8 +38,24 @@ window.CLIPS = [
     title: "Your message to the next person?",
     client: "Birmingham Community Group",
     type: "Creators",
-    views: "300k+ views",
-    note: "."
+    views: "300K+ views",
+    note: "Street interviews asking Brummies for a message for the next person."
+  },
+  {
+    file: "clips/clip-02.mp4",
+    title: "The Cheekiest Chinesiest Mixed Meat Fried Rice",
+    client: "iKrave Chinese Restaurant",
+    type: "Brands",
+    views: "175K views",
+    note: "A successful ad written, shot, edited and voiced by me, targeting a wide Birmingham demographic."
+  },
+  {
+    file: "clips/clip-01.mp4",
+    title: "Grandma tries Gen Z's three most popular drinks",
+    client: "Loaf n Latte Café",
+    type: "Brands",
+    views: "10.2K views",
+    note: "Used to promote their latest drinks range."
   },
   {
     file: "clips/clip-03.mp4",
@@ -71,7 +71,7 @@ window.CLIPS = [
     client: "Civic Square Birmingham CIC",
     type: "Creators",
     views: "",
-    note: "Part of a series exploring day-to-day projects of a local charity"
+    note: "Part of a series exploring day-to-day projects of a local charity."
   },
   {
     file: "clips/clip-07.mp4",
@@ -79,11 +79,11 @@ window.CLIPS = [
     client: "Joshua Vaughan",
     type: "Creators",
     views: "",
-    note: "UGC Collaboration with Ultraviolet. "
+    note: "UGC collaboration with Ultraviolet."
   },
   {
     file: "clips/clip-08.mp4",
-    title: "Mozarella Sticks x Airfryer",
+    title: "Mozzarella Sticks x Air Fryer",
     client: "Kelen & Willian Appliances",
     type: "Brands",
     views: "",
